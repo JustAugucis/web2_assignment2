@@ -1,38 +1,23 @@
-.App {
-  text-align: center;
+.half-screen {
+  width: 50%; /* Set the width to 50% of the parent container */
+  float: left; /* Float the element to the left so it occupies half of the screen */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  padding: 20px; /* Add some padding for spacing */
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  overflow-y: auto; /* Add vertical scroll if content exceeds the height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Additional styles (optional) */
+.half-screen table {
+  width: 100%; /* Make the table fill the entire width of the half-screen container */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.half-screen table th,
+.half-screen table td {
+  padding: 8px; /* Add padding to table cells */
+  border-bottom: 1px solid #ddd; /* Add a bottom border to separate table rows */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  clear: both; /* Clear floats to prevent content from wrapping around floated elements */
 }
