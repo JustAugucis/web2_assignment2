@@ -1,16 +1,26 @@
-name: Build a Docker Image - CI
+name: Build Docker Image
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag greenhouse:$(date +%s)
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t my-react-app:latest .
+          docker images
+
+      # Save Docker image as artifact
+      - name: Save Docker image as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-react-app-image
+          path: .
