@@ -15,7 +15,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t reactAppDockerFile .
+          docker build -t reactappdockerfile .
           docker images
 
       # Save Docker image as artifact
@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-react-app-image
-          path: reactAppDockerFile
+          path: reactappdockerfile
