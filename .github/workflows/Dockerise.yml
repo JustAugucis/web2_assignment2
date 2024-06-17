@@ -17,6 +17,9 @@ jobs:
         run: |
           docker build -t reactappdockerfile .
           docker images
+          ls
+          cd ./
+          ls
 
       # Save Docker image as artifact
       - name: Save Docker image as artifact
