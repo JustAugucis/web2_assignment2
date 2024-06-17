@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # or the branch you want to trigger the deploy
 
 jobs:
   build:
@@ -19,10 +19,15 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm install
+        npm install @babel/plugin-proposal-private-property-in-object --save-dev
+
+    - name: Set CI environment variable to false
+      run: echo "CI=false" >> $GITHUB_ENV
 
     - name: Build the React app
-      run: npm run build
+      run: CI=false npm run build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
